@@ -1,0 +1,19 @@
+.todo span.label {
+    position: relative;
+}
+
+.todo span.label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 0.1em;
+    width: 100%;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: 200ms ease-in-out;
+}
+
+.todo span.label.done::after {
+    transform: scaleX(1);
+}
