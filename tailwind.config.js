@@ -9,5 +9,6 @@ export default {
     plugins: [daisyui],
     daisyui: {
         themes: ["winter", "night"],
+        darkTheme: "night"
     },
 };
