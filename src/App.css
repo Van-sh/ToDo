@@ -4,7 +4,6 @@ main {
     padding: 2em;
 }
 
-
 @media only screen and (min-width: 768px) {
     main {
         width: 60%;

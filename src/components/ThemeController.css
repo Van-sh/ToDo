@@ -1,0 +1,11 @@
+div.themer {
+    position: absolute;
+    z-index: 10;
+    bottom: 10px;
+    align-self: center;
+    text-align: center;
+}
+
+div.themer:hover svg, div.themer:focus svg, div.themer:focus-within svg {
+    rotate: 180deg;
+}

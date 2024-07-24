@@ -4060,6 +4060,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"theme-change@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "theme-change@npm:2.5.0"
+  checksum: 10c0/6f4824856f9e3d86eb59c2f798418ad8b3d86de42180b734fcc80ac5b2ba587b848712414c8111f99393d21ba63cc4c00099258138fa2f2ad231aaefa5f61465
+  languageName: node
+  linkType: hard
+
 "thenify-all@npm:^1.0.0":
   version: 1.6.0
   resolution: "thenify-all@npm:1.6.0"
@@ -4111,6 +4118,7 @@ __metadata:
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     tailwindcss: "npm:^3.4.4"
+    theme-change: "npm:^2.5.0"
     uuid: "npm:^10.0.0"
     vite: "npm:^5.3.1"
   languageName: unknown

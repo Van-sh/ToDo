@@ -2,7 +2,13 @@ import { useState } from "react";
 import "./Todo.css";
 import trashCan from "../assets/trash-can.svg";
 
-function Todo({ id, text, isDone: done, handleTodoCompletion, handleTodoDeletionById }) {
+function Todo({
+    id,
+    text,
+    isDone: done,
+    handleTodoCompletion,
+    handleTodoDeletionById,
+}) {
     const [isDone, setIsDone] = useState(done);
     return (
         <div className="todo flex justify-between w-full">
@@ -25,7 +31,10 @@ function Todo({ id, text, isDone: done, handleTodoCompletion, handleTodoDeletion
                     {text}
                 </span>
             </label>
-            <button className="btn btn-square btn-sm btn-error" onClick={()=>handleTodoDeletionById(id)}>
+            <button
+                className="btn btn-square btn-sm btn-error"
+                onClick={() => handleTodoDeletionById(id)}
+            >
                 <img src={trashCan} alt="trashCan" className="h-4/5" />
             </button>
         </div>

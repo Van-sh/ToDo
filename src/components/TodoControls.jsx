@@ -16,9 +16,11 @@ function TodoControls({ handleTodoCreation, handleTodoDeletion }) {
                     type="text"
                     placeholder="eg. Eat Food"
                     autoFocus
-                    onChange={(event) => setInputValue(event.target.value.trim())}
+                    onChange={(event) =>
+                        setInputValue(event.target.value.trim())
+                    }
                     onKeyDown={(event) => {
-                        if (event.key == "Enter" && inputValue != "") {
+                        if (event.key === "Enter" && inputValue != "") {
                             todoCreation();
                         }
                     }}
@@ -28,16 +30,23 @@ function TodoControls({ handleTodoCreation, handleTodoDeletion }) {
                     <button
                         className="btn btn-primary"
                         onClick={() => {
-                            if (inputValue != "")
-                            todoCreation();
+                            if (inputValue != "") todoCreation();
                         }}
                     >
                         Add
                     </button>
-                    <button className="btn btn-secondary" onClick={() => handleTodoDeletion(true)}>
+                    <button
+                        className="btn btn-secondary"
+                        onClick={() => handleTodoDeletion(true)}
+                    >
                         Clear Completed
                     </button>
-                    <button className="btn btn-error" onClick={() => handleTodoDeletion(false)}>Clear All</button>
+                    <button
+                        className="btn btn-error"
+                        onClick={() => handleTodoDeletion(false)}
+                    >
+                        Clear All
+                    </button>
                 </div>
             </div>
         </>
