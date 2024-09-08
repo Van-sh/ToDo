@@ -19,15 +19,15 @@ yarn
 ### Run Dev
 
 ```sh
-yarn run dev
+yarn dev
 ```
 
 ### Build and Serve
 
 ```sh
-yarn run build
+yarn build
 ```
 
 ```sh
-yarn run preview
+yarn preview
 ```
