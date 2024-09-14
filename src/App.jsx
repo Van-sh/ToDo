@@ -15,7 +15,6 @@ function pullFromLocalStorage(key) {
       data = [];
       pushToLocalStorage(key, data);
    }
-   console.log(data);
    return data;
 }
 
