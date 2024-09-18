@@ -6,9 +6,9 @@
    content: "";
    position: absolute;
    top: 50%;
-   left: 0;
+   left: 0.125rem;
    height: 0.1em;
-   width: 100%;
+   width: calc(100% - 0.25rem);
    transform-origin: left;
    transform: scaleX(0);
    transition: 200ms ease-in-out;
