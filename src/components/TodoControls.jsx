@@ -16,7 +16,7 @@ function TodoControls({ handleTodoCreation, handleTodoDeletion }) {
                type="text"
                placeholder="eg. Eat Food"
                autoFocus
-               onChange={(event) => setInputValue(event.target.value.trim())}
+               onChange={(event) => setInputValue(event.target.value)}
                onKeyDown={(event) => {
                   if (event.key === "Enter" && inputValue != "") {
                      todoCreation();
