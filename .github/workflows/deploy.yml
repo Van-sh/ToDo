@@ -24,13 +24,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'yarn'
-      - name: Enable Corepack
-        run: corepack enable
       - name: Install dependencies
         run: yarn install --immutable  # Enforces lockfile usage strictly
       - name: Build
