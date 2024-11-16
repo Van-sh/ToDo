@@ -1,9 +1,10 @@
-import "./App.css";
-import TodoControls from "./components/TodoControls";
-import TodoList from "./components/TodoList";
-import ThemeController from "./components/ThemeController";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+
+import "./App.css";
+import ThemeController from "./components/ThemeController";
+import TodoControls from "./components/TodoControls";
+import TodoList from "./components/TodoList";
 
 function pushToLocalStorage(key, object) {
    localStorage.setItem(key, JSON.stringify(object));

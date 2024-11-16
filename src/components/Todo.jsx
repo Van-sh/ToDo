@@ -1,5 +1,7 @@
 import { useState } from "react";
+
 import "./Todo.css";
+
 import trashCan from "../assets/trash-can.svg";
 
 function Todo({
