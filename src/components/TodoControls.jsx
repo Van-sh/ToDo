@@ -12,7 +12,7 @@ function TodoControls({ handleTodoCreation, handleTodoDeletion }) {
       <>
          <div className="todo-controls flex flex-col gap-2">
             <input
-               className="input w-full input-bordered flex-grow-0 todo-input"
+               className="input w-full input-bordered flex-grow-0"
                type="text"
                placeholder="eg. Eat Food"
                autoFocus
@@ -24,7 +24,7 @@ function TodoControls({ handleTodoCreation, handleTodoDeletion }) {
                }}
                value={inputValue}
             />
-            <div className="buttons flex gap-1 justify-start">
+            <div className="buttons flex flex-col md:flex-row gap-1 justify-start">
                <button
                   className="btn btn-primary"
                   onClick={() => {

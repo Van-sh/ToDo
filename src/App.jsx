@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import "./App.css";
 import ThemeController from "./components/ThemeController";
 import TodoControls from "./components/TodoControls";
 import TodoList from "./components/TodoList";
@@ -22,39 +21,59 @@ function pullFromLocalStorage(key) {
 function App() {
    const [todoList, setTodoList] = useState(pullFromLocalStorage("todoList"));
 
-   function handleTodoCreation(newTodo) {
-      newTodo = { id: uuidv4(), ...newTodo };
-      let newTodoList = [...todoList, newTodo];
-      pushToLocalStorage("todoList", newTodoList);
-      setTodoList(newTodoList);
-   }
+   const handleTodoCreation = useCallback(
+      (newTodo) => {
+         newTodo = { id: uuidv4(), ...newTodo };
+         setTodoList((prev) => [...prev, newTodo]);
+         pushToLocalStorage("todoList", todoList);
+      },
+      [todoList],
+   );
 
-   function handleTodoCompletion(id) {
-      let newTodoList = todoList;
-      newTodoList.map((todo) => {
-         if (todo.id === id) {
-            todo.isDone = !todo.isDone;
-         }
-      });
+   const handleTodoCompletion = useCallback(
+      (id) => {
+         setTodoList((prev) =>
+            prev.map((todo) =>
+               todo.id === id ? { ...todo, isDone: !todo.isDone } : todo,
+            ),
+         );
 
-      pushToLocalStorage("todoList", newTodoList);
-      setTodoList(newTodoList);
-   }
+         pushToLocalStorage("todoList", todoList);
+      },
+      [todoList],
+   );
 
-   function handleTodoDeletionById(id) {
-      let newTodoList = todoList.filter((todo) => todo.id != id);
-      pushToLocalStorage("todoList", newTodoList);
-      setTodoList(newTodoList);
-   }
-   function handleTodoDeletion(isDone) {
-      let newTodoList = todoList.filter((todo) => isDone && !todo.isDone);
-      pushToLocalStorage("todoList", newTodoList);
-      setTodoList(newTodoList);
-   }
+   const handleTodoDeletionById = useCallback(
+      (id) => {
+         setTodoList((prev) => prev.filter((todo) => todo.id != id));
+         pushToLocalStorage("todoList", todoList);
+      },
+      [todoList],
+   );
+
+   const handleTodoDeletion = useCallback(
+      (isDone) => {
+         setTodoList((prev) => prev.filter((todo) => isDone && !todo.isDone));
+
+         pushToLocalStorage("todoList", todoList);
+      },
+      [todoList],
+   );
+
+   const handleTodoEdit = useCallback(
+      (id, newText) => {
+         setTodoList((prev) =>
+            prev.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo)),
+         );
+
+         pushToLocalStorage("todoList", todoList);
+      },
+      [todoList],
+   );
 
    return (
       <>
-         <main className="bg-base-300 rounded-xl flex flex-col items-center">
+         <main className="bg-base-300 rounded-xl flex flex-col items-center mx-auto my-4 p-8 w-full md:w-3/5 lg:w-2/5">
             <h1 className="text-5xl mb-3">Todos</h1>
             <TodoControls
                handleTodoCreation={handleTodoCreation}
@@ -67,6 +86,7 @@ function App() {
                      todoList={todoList}
                      handleTodoCompletion={handleTodoCompletion}
                      handleTodoDeletionById={handleTodoDeletionById}
+                     handleTodoEdit={handleTodoEdit}
                   ></TodoList>
                </>
             ) : (
