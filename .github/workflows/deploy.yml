@@ -1,4 +1,4 @@
-# Simple workflow for deploying static content to GitHub Pages using Yarn
+# Simple workflow for deploying static content to GitHub Pages using pnpm
 name: Deploy static content to Pages
 
 on:
@@ -30,11 +30,11 @@ jobs:
            uses: actions/setup-node@v4
            with:
               node-version: 20
-              cache: "yarn"
+              cache: "pnpm"
          - name: Install dependencies
-           run: yarn install --immutable # Enforces lockfile usage strictly
+           run: pnpm install --frozen-lockfile # Enforces lockfile usage strictly
          - name: Build
-           run: yarn build
+           run: pnpm build
          - name: Setup Pages
            uses: actions/configure-pages@v4
          - name: Upload artifact
