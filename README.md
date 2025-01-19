@@ -13,21 +13,21 @@ cd ToDo
 ```
 
 ```sh
-yarn
+pnpm i
 ```
 
 ### Run Dev
 
 ```sh
-yarn dev
+pnpm dev
 ```
 
 ### Build and Serve
 
 ```sh
-yarn build
+pnpm build
 ```
 
 ```sh
-yarn preview
+pnpm preview
 ```
