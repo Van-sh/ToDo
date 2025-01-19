@@ -33,16 +33,10 @@ function TodoControls({ handleTodoCreation, handleTodoDeletion }) {
                >
                   Add
                </button>
-               <button
-                  className="btn btn-secondary"
-                  onClick={() => handleTodoDeletion(true)}
-               >
+               <button className="btn btn-secondary" onClick={() => handleTodoDeletion(true)}>
                   Clear Completed
                </button>
-               <button
-                  className="btn btn-error"
-                  onClick={() => handleTodoDeletion(false)}
-               >
+               <button className="btn btn-error" onClick={() => handleTodoDeletion(false)}>
                   Clear All
                </button>
             </div>

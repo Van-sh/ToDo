@@ -7,14 +7,7 @@ import cross from "../assets/cross.svg";
 import edit from "../assets/edit.svg";
 import trashCan from "../assets/trash-can.svg";
 
-function Todo({
-   id,
-   text,
-   isDone: done,
-   handleTodoCompletion,
-   handleTodoDeletionById,
-   handleTodoEdit,
-}) {
+function Todo({ id, text, isDone: done, handleTodoCompletion, handleTodoDeletionById, handleTodoEdit }) {
    const [isDone, setIsDone] = useState(done);
    const [isEditing, setIsEditing] = useState(false);
 
@@ -45,15 +38,7 @@ function Todo({
    );
 }
 
-const TodoItem = ({
-   id,
-   text,
-   isDone,
-   setIsDone,
-   setIsEditing,
-   handleTodoCompletion,
-   handleTodoDeletionById,
-}) => {
+const TodoItem = ({ id, text, isDone, setIsDone, setIsEditing, handleTodoCompletion, handleTodoDeletionById }) => {
    return (
       <div className="todo flex justify-between w-full">
          <label className={"label cursor-pointer justify-start gap-2 p-0"}>
@@ -66,26 +51,15 @@ const TodoItem = ({
                   setIsDone(!isDone);
                }}
             />
-            <span
-               className={
-                  "label label-text text-md p-1 after:bg-base-content" +
-                  (isDone ? " done" : "")
-               }
-            >
+            <span className={"label label-text text-md p-1 after:bg-base-content" + (isDone ? " done" : "")}>
                {text}
             </span>
          </label>
          <div className="flex gap-1">
-            <button
-               className="btn btn-square btn-sm btn-info"
-               onClick={() => setIsEditing(true)}
-            >
+            <button className="btn btn-square btn-sm btn-info" onClick={() => setIsEditing(true)}>
                <img src={edit} alt="edit" className="h-4/5" />
             </button>
-            <button
-               className="btn btn-square btn-sm btn-error"
-               onClick={() => handleTodoDeletionById(id)}
-            >
+            <button className="btn btn-square btn-sm btn-error" onClick={() => handleTodoDeletionById(id)}>
                <img src={trashCan} alt="trashCan" className="h-4/5" />
             </button>
          </div>
@@ -93,15 +67,7 @@ const TodoItem = ({
    );
 };
 
-const TodoEdit = ({
-   id,
-   text,
-   isDone,
-   setIsDone,
-   setIsEditing,
-   handleTodoCompletion,
-   handleTodoEdit,
-}) => {
+const TodoEdit = ({ id, text, isDone, setIsDone, setIsEditing, handleTodoCompletion, handleTodoEdit }) => {
    const [editText, setEditText] = useState(text);
 
    const handleEdit = useCallback(() => {

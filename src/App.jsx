@@ -32,11 +32,7 @@ function App() {
 
    const handleTodoCompletion = useCallback(
       (id) => {
-         setTodoList((prev) =>
-            prev.map((todo) =>
-               todo.id === id ? { ...todo, isDone: !todo.isDone } : todo,
-            ),
-         );
+         setTodoList((prev) => prev.map((todo) => (todo.id === id ? { ...todo, isDone: !todo.isDone } : todo)));
 
          pushToLocalStorage("todoList", todoList);
       },
@@ -62,9 +58,7 @@ function App() {
 
    const handleTodoEdit = useCallback(
       (id, newText) => {
-         setTodoList((prev) =>
-            prev.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo)),
-         );
+         setTodoList((prev) => prev.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo)));
 
          pushToLocalStorage("todoList", todoList);
       },

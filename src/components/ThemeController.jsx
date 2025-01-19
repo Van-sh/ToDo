@@ -11,11 +11,7 @@ function ThemeController() {
    return (
       <div className="flex justify-center">
          <div className="dropdown dropdown-top dropdown-hover themer">
-            <div
-               tabIndex={0}
-               role="button"
-               className="btn btn-outline btn-secondary m-1 rounded-full"
-            >
+            <div tabIndex={0} role="button" className="btn btn-outline btn-secondary m-1 rounded-full">
                Theme
                <svg
                   width="12px"
@@ -27,10 +23,7 @@ function ThemeController() {
                   <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
                </svg>
             </div>
-            <ul
-               tabIndex={0}
-               className="dropdown-content bg-base-300 rounded-box z-[1] w-52 p-2 shadow-2xl"
-            >
+            <ul tabIndex={0} className="dropdown-content bg-base-300 rounded-box z-[1] w-52 p-2 shadow-2xl">
                <li>
                   <input
                      type="radio"
